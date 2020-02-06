@@ -2,14 +2,14 @@ name: Get Weibo Rank
 
 on:
   schedule:
-    - cron: "*/30 * * * *"
+    - cron: "* * * * *"
   push:
     branches:
       - master
 
 jobs:
   build:
-    name: Check Site
+    name: Show Weibo Rank
     runs-on: ubuntu-latest
 
     steps:
