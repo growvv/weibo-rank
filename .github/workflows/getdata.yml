@@ -29,6 +29,3 @@ jobs:
       env:
         GIST_ID: '05525c47a9ff4dff63bdab20b3e98d17'
         TOKEN: ${{ secrets.token }}
-        env: 
-          GIST_ID: '05525c47a9ff4dff63bdab20b3e98d17'
-          TOKEN: ${{ secrets.token }}
