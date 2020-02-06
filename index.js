@@ -6,6 +6,12 @@ const cheerio = require("cheerio");
 // const path = require("path");
 const { GistBox } = require('gist-box')
 
+require('dotenv').config()
+const {
+  GIST_ID: gistId,
+  TOKEN: token
+} = process.env
+
 // 获取实时数据
 function getWeiboData() {
     return new Promise((resolve, reject) => {
@@ -56,8 +62,6 @@ async function test(){
   //console.log(weiboData.text.length)
   console.log(content)
 
-  const GIST_ID = '05525c47a9ff4dff63bdab20b3e98d17'
-  const TOKEN =  '818cbd42d5a8400172a4108cb7d68d2c05853b19'
   const box = new GistBox({ id: GIST_ID, token: TOKEN })
   await box.update({
     content
