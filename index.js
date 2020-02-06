@@ -55,7 +55,7 @@ async function test(){
   var content = `更新时间： ${time}<br>`
   const weiboData = await getWeiboData()
   const len = weiboData.num.length
-  var content = `Pin. [${weiboData.text[0]}](${weiboData.url[0]})<br>`
+  var content = content + `Pin. [${weiboData.text[0]}](${weiboData.url[0]})<br>`
   for (var i = 0; i < len; i++) {
       content = content + `${weiboData.num[i]}. [${weiboData.text[i+1]}](${weiboData.url[i+1]}) ${weiboData.degree[i]}<br>`
   }
