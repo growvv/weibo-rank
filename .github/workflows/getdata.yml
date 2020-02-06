@@ -1,0 +1,31 @@
+name: Get Weibo Rank
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: Check Site
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+        
+    - name: Setup Node
+      uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+        
+    - name: 'Install NPM dependencies'
+      run: 
+        npm install superagent cheerio moment gist-box dotenv
+        
+    - name: Run
+      run: node index.js
+      env:
+        GIST_ID: '05525c47a9ff4dff63bdab20b3e98d17'
+        TOKEN: ${{ secrets.token }}
