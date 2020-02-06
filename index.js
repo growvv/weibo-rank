@@ -2,15 +2,13 @@
 const request = require("superagent");
 // 导入 cheerio，把字符串解析成 HTML
 const cheerio = require("cheerio");
-// 导入 path 模块处理路径
-// const path = require("path");
+// 导入 moment，获取当前时间
+const moment = require('moment')
+//
 const { GistBox } = require('gist-box')
 
 require('dotenv').config()
-const {
-  GIST_ID: gistId,
-  TOKEN: token
-} = process.env
+const { GIST_ID, TOKEN } = process.env
 
 // 获取实时数据
 function getWeiboData() {
@@ -53,6 +51,8 @@ function getWeiboData() {
 
 async function test(){
 
+  const time = moment().format('YYYY-MM-DD kk:mm ZZ')
+  var content = `更新时间： ${time}<br>`
   const weiboData = await getWeiboData()
   const len = weiboData.num.length
   var content = `Pin. [${weiboData.text[0]}](${weiboData.url[0]})<br>`
